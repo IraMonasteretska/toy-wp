@@ -71,25 +71,25 @@ if ( ! function_exists( 'ch_change_logo_class' ) ) {
 
 
 
-if ( ! function_exists( 'ch_pingback' ) ) {
-	/**
-	 * Add a pingback url auto-discovery header for single posts of any post type.
-	 */
-	function ch_pingback() {
-		if ( is_singular() && pings_open() ) {
-			echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url' ) ) . '">' . "\n";
-		}
-	}
-}
-add_action( 'wp_head', 'ch_pingback' );
+// if ( ! function_exists( 'ch_pingback' ) ) {
+// 	/**
+// 	 * Add a pingback url auto-discovery header for single posts of any post type.
+// 	 */
+// 	function ch_pingback() {
+// 		if ( is_singular() && pings_open() ) {
+// 			echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url' ) ) . '">' . "\n";
+// 		}
+// 	}
+// }
+// add_action( 'wp_head', 'ch_pingback' );
 
-if ( ! function_exists( 'ch_mime_types' ) ) {
-	function ch_mime_types($mimes) {
-	  $mimes['svg'] = 'image/svg+xml';
-	  return $mimes;
-	}
-	add_filter('upload_mimes', 'ch_mime_types');
-}
+// if ( ! function_exists( 'ch_mime_types' ) ) {
+// 	function ch_mime_types($mimes) {
+// 	  $mimes['svg'] = 'image/svg+xml';
+// 	  return $mimes;
+// 	}
+// 	add_filter('upload_mimes', 'ch_mime_types');
+// }
 
 
 
