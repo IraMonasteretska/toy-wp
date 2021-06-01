@@ -3,10 +3,6 @@
 # Ignore all directories called node_modules in current folder and any subfolders.
 node_modules/
 /node_modules/
-# /assets/css/*
-# /assets/js/*
-# assets/css/*
-# assets/js/*
 # Packages #
 ############
 *.7z
