@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.formstyler.css">
+    <link rel="stylesheet" href="css/jquery.formstyler.theme.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="greybg">
+    <button type="button" class="btn btn-primary blackbtn" data-toggle="modal" data-target="#exampleModal">
+        Congrats
+    </button>
+
+    <button type="button" class="btn btn-primary blackbtn" data-toggle="modal" data-target="#tywrong">
+        Something went wrong
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="generalpopup ty">
+                    <button class="closepopup" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="congrats__title">
+                        <p>Congrats!</p>
+                    </div>
+                    <div class="congrats__pinksect">
+                        <p>
+                            Your order has been placed successfully!
+                        </p>
+                        <p>View details in your email <a href="mailto:noname@gmail.com">noname@gmail.com</a></p>
+                    </div>
+                    <img class="typerl1" src="img/popupperl1.png" alt="img">
+                    <img class="typerl2" src="img/popupperl2.png" alt="img">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="tywrong" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="generalpopup tywrong">
+                    <button class="closepopup" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="congrats__title">
+                        <p>Something went wrong...</p>
+                    </div>
+                    <div class="congrats__greysect">
+                        <p>
+                            Apparently the payment was unsuccessful.<br>
+                            Take a step back and try again.
+                        </p>
+                        <a href="#" data-dismiss="modal">BACK</a>
+                    </div>
+                    <img class="typerl3" src="img/popupperl3.png" alt="img">
+                    <img class="typerl4" src="img/popupperl4.png" alt="img">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.formstyler.min.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

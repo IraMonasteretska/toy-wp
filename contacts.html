@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacts</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/jquery.formstyler.css">
+  <link rel="stylesheet" href="css/jquery.formstyler.theme.css">
+  <link rel="stylesheet" href="css/slick.css">
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="css/contacts-about.css">
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__pinkrow">
+      <div class="container-fluid text-center">
+        <p>FREE SHIPPING ON ORDERS OVER $99.99</p>
+      </div>
+    </div>
+    <div class="header__content">
+      <div class="container-fluid">
+        <button class="burgermenu-icon"></button>
+        <div class="row menurow">
+          <div class="col-md-10">
+            <nav>
+              <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="shipping.html">Shipping</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Buy</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-2 justify-content-end d-flex bagcol">
+
+            <a href="#">
+              <div class="header__bag">
+                <img src="img/icon/bag.svg" alt="cart">
+                <span>1</span>
+              </div>
+            </a>
+          </div>
+          <buttom class="closemenu"></buttom>
+          <img class="menuperl1" src="img/perl1.png" alt="img">
+          <img class="menuperl2" src="img/perl2.png" alt="img">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro contact-s__intro">
+      <div class="container-fluid">
+
+
+        <div id="scene" class="contact-parallax">
+          <div data-depth="0.2">
+            <img src="img/parallax/parallax-errorpage1.png" alt="perl">
+          </div>
+        </div>
+
+        <div class="intro__text">
+          <div class="intro__subtitle">if you have any questions you can</div>
+          <div class="intro__title">contact us</div>
+        </div>
+
+        <div class="row contact-s__first-block">
+          <div class=" col-xl-3">
+            <div class="section-name">OUR CONTACTS</div>
+          </div>
+          <div class="col-xl-6">
+            <div class="about-us__text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+              laborum.
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-s__map-wrapper ">
+          <div class="contactsection__boxes">
+            <div class="contactsection__box">
+              <p class="title tel">Our phone number</p>
+              <a href="tel:80400600400">80 (400) 600 400</a>
+            </div>
+            <div class="contactsection__box">
+              <p class="title mail">Our email</p>
+              <a href="mail:kids_toy@email.com">kids_toy@email.com</a>
+            </div>
+            <div class="contactsection__box">
+              <p class="title offaddr">Our office address</p>
+              <p>245 Park Avenue, FL39 / New York City, NY 10167</p>
+            </div>
+          </div>
+          <div id="map">
+            <script>
+              // ////////////  map init /////////
+
+              function initMap() {
+                setTimeout(function () {
+                  var element = document.getElementById('map');
+
+                  var stylemap = [
+                    {
+                      "featureType": "administrative",
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#6195A0"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "landscape",
+                      "elementType": "all",
+                      "stylers": [
+                        {
+                          "color": "#F2F2F2"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "landscape",
+                      "elementType": "geometry.fill",
+                      "stylers": [
+                        {
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "poi",
+                      "elementType": "all",
+                      "stylers": [
+                        {
+                          "visibility": "off"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "poi.park",
+                      "elementType": "geometry.fill",
+                      "stylers": [
+                        {
+                          "color": "#E6F3D6"
+                        },
+                        {
+                          "visibility": "on"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road",
+                      "elementType": "all",
+                      "stylers": [
+                        {
+                          "saturation": -100
+                        },
+                        {
+                          "lightness": 45
+                        },
+                        {
+                          "visibility": "simplified"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road.highway",
+                      "elementType": "all",
+                      "stylers": [
+                        {
+                          "visibility": "simplified"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road.highway",
+                      "elementType": "geometry.fill",
+                      "stylers": [
+                        {
+                          "color": "#FDBEDB"
+                        },
+                        {
+                          "visibility": "simplified"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road.highway",
+                      "elementType": "labels.text",
+                      "stylers": [
+                        {
+                          "color": "#4E4E4E"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road.arterial",
+                      "elementType": "geometry.fill",
+                      "stylers": [
+                        {
+                          "color": "#F4F4F4"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road.arterial",
+                      "elementType": "labels.text.fill",
+                      "stylers": [
+                        {
+                          "color": "#787878"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "road.arterial",
+                      "elementType": "labels.icon",
+                      "stylers": [
+                        {
+                          "visibility": "off"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "transit",
+                      "elementType": "all",
+                      "stylers": [
+                        {
+                          "visibility": "off"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "water",
+                      "elementType": "all",
+                      "stylers": [
+                        {
+                          "color": "#EAF6F8"
+                        },
+                        {
+                          "visibility": "on"
+                        }
+                      ]
+                    },
+                    {
+                      "featureType": "water",
+                      "elementType": "geometry.fill",
+                      "stylers": [
+                        {
+                          "color": "#EAF6F8"
+                        }
+                      ]
+                    }
+                  ]
+
+                  var options = {
+                    zoom: 13,
+                    styles: stylemap,
+                    disableDefaultUI: true,
+                    center: {
+                      lat: 40.754870123759964,
+                      lng: -73.9747749444492
+                    }
+
+                  };
+                  var myMap = new google.maps.Map(element, options);
+
+                  var markers = [{
+                    coordinates: {
+                      lat: 60.00709621992757,
+                      lng: 23.539583887654967
+                    },
+                    image: "img/icon/pinktel.svg",
+                  }];
+
+                  function addMarker(properties) {
+                    var marker = new google.maps.Marker({
+                      position: properties.coordinates,
+                      map: myMap,
+                      icon: properties.image,
+                      animation: google.maps.Animation.BOUNCE,
+                    });
+
+
+                  }
+                  for (var i = 0; i < markers.length; i++) {
+                    addMarker(markers[i]);
+                  }
+
+                }, 500)
+
+
+
+
+              }
+            </script>
+            <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuqtG8XhmKQPGoYpFi9dqZmhZTDWGCxE0&amp;callback=initMap">
+              </script>
+            
+          </div>
+        </div>
+
+        <div class="row contact-s__first-block contact-s__under-map">
+          <div class=" col-xl-3">
+            <div class="section-name">CONTACT FORM</div>
+          </div>
+          <div class="col-xl-6">
+            <div class="about-us__text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+              laborum.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row contact-s__form">
+          <div class=" col-xl-3">
+          </div>
+          <div class="col-xl-6">
+            <form action="#" class="contact-s__from_wrapper">
+              <div class="contact-s__from-fr">
+                <input type="text" placeholder="Your name">
+                <input type="email" placeholder="Your EMAIL">
+                <input type="number" placeholder="Phone number (optional)">
+              </div>
+              <textarea placeholder="Your Message"></textarea>
+              <div class="checkfield">
+                <input type="checkbox" id="checknews" checked>
+                <label for="checknews">Keep me up to date on news and exclusive offers</label>
+              </div>
+              <input class="contact-s__from-submit" type="submit" value="order">
+            </form>
+          </div>
+          <div class=" col-xl-3">
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+  <footer class="pink-footer">
+    <div id="scene_footer" class="footer-parallax">
+        <div data-depth="0.2">
+            <img src="img/footer-perl1.png" alt="perl">
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="pink-footer__content">
+            <p>2021. All rights reserved.</p>
+            <div class="scrol-up">up</div>
+        </div>
+    </div>
+  </footer>
+
+
+  <script src="js/jquery.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js"></script>
+  <script src='js/jquery.fancybox.min.js'></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/jquery.formstyler.min.js"></script>
+  <script src="js/parallax.js"></script>
+  <script src="js/common.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>
