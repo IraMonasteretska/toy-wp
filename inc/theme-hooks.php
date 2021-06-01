@@ -22,3 +22,30 @@ function address_mobile_address_bar() {
 	echo '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">';
 }
 add_action( 'wp_head', 'address_mobile_address_bar' );
+
+
+// remove breadcrumb
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 35 );
+
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 7 );
+
+// hides the quantity field on the product page
+add_filter( 'woocommerce_quantity_input_min', 'hide_woocommerce_quantity_input', 10, 2 );
+add_filter( 'woocommerce_quantity_input_max', 'hide_woocommerce_quantity_input', 10, 2 );
+function hide_woocommerce_quantity_input( $quantity, $product ) {
+    // only on the product page
+    if ( ! is_product() ) {
+        return $quantity;
+    }
+    return 1;
+}
+
+
+	
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
