@@ -23,6 +23,7 @@
         <div class="header__pinkrow">
             <div class="container-fluid text-center">
                 <p>FREE SHIPPING ON ORDERS OVER $99.99</p>
+                
             </div>
         </div>
         <div class="header__content">

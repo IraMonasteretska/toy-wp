@@ -33,20 +33,102 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 <section class="cartsect">
   <div class="container-fluid">
 
-    <form name="checkout" method="post" class="checkout woocommerce-checkout row" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
-
-      <?php if ($checkout->get_checkout_fields()) : ?>
-
+    <form name="checkout" method="post" class="checkout woocommerce-checkout " action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+   <div class="row">
+    <?php if ($checkout->get_checkout_fields()) : ?>
         <?php do_action('woocommerce_checkout_before_customer_details'); ?>
-
         <div class="col-lg-7" id="customer_details">
-          <div class="col-1">
-            <?php do_action('woocommerce_checkout_billing'); ?>
-          </div>
+          <div class="checkout-whitesect checkout-first-step active">
+            <p class="title">Delivery method</p>
+            <div class="dilivmethods">
+              <div class="dilivmethod">
+                <div class="dilivmethod__main">
+                  <input type="radio" id="deliv1" name="maindelivery" checked>
+                  <label for="deliv1">
+                    <span>UPS</span>
+                    <img src="<?php echo SD_THEME_IMAGE_URI; ?>/delivery1.png" alt="delivery method">
+                  </label>
+                </div>
+                <div class="dilivmethod__submain show">
+                  <div class="dilivmethod__submaincheckblock">
+                    <input type="radio" id="ups1" name="ups" checked>
+                    <label for="ups1">UPS Access Point Economy (Access Point):
+                      <span>18</span></label>
+                  </div>
+                  <div class="dilivmethod__submaincheckblock">
+                    <input type="radio" id="ups2" name="ups">
+                    <label for="ups2">UPS Express Saver (Access Point):
+                      <span>94</span></label>
+                  </div>
+                  <div class="dilivmethod__submaincheckblock">
+                    <input type="radio" id="ups3" name="ups">
+                    <label for="ups3">UPS Express Saver (Access Point):
+                      <span>110</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="dilivmethod">
+                <div class="dilivmethod__main">
+                  <input type="radio" id="deliv2" name="maindelivery">
+                  <label for="deliv2">
+                    <span>FedEx</span>
+                    <img src="<?php echo SD_THEME_IMAGE_URI; ?>/delivery2.png" alt="delivery method">
+                  </label>
+                </div>
+                <div class="dilivmethod__submain">
+                  <div class="dilivmethod__submaincheckblock">
+                    <input type="radio" id="feedex1" name="feedex" checked>
+                    <label for="feedex1">FeedEx Access Point Economy (Access Point):
+                      <span>18</span></label>
+                  </div>
+                  <div class="dilivmethod__submaincheckblock">
+                    <input type="radio" id="feedex2" name="feedex">
+                    <label for="feedex2">FeedEx Access Point Economy (Access Point):
+                      <span>94</span></label>
+                  </div>
+                  <div class="dilivmethod__submaincheckblock">
+                    <input type="radio" id="feedex3" name="feedex">
+                    <label for="feedex3">FeedEx Access Point Economy (Access Point):
+                      <span>110</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="dilivmethod">
+                <div class="dilivmethod__main">
+                  <input type="radio" id="deliv3" name="maindelivery">
+                  <label for="deliv3">
+                    <span>DHL</span>
+                    <img src="<?php echo SD_THEME_IMAGE_URI; ?>/delivery3.png" alt="delivery method">
+                  </label>
+                </div>
+                <div class="dilivmethod__submain">
+                  <div class="dilivmethod__submaincheckblock">
+                    <input type="radio" id="dhl1" name="dhl" checked>
+                    <label for="dhl1">DHL Access Point Economy (Access Point):
+                      <span>18</span></label>
+                  </div>
+                  <div class="dilivmethod__submaincheckblock">
+                    <input type="radio" id="dhl2" name="dhl">
+                    <label for="dhl2">DHL Access Point Economy (Access Point):
+                      <span>94</span></label>
+                  </div>
+                  <div class="dilivmethod__submaincheckblock">
+                    <input type="radio" id="dhl3" name="dhl">
+                    <label for="dhl3">DHL Access Point Economy (Access Point):
+                      <span>110</span></label>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <div class="col-2">
-            <?php do_action('woocommerce_checkout_shipping'); ?>
+            <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
+              <?php do_action('woocommerce_review_order_before_shipping'); ?>
+              <?php wc_cart_totals_shipping_html(); ?>
+              <?php do_action('woocommerce_review_order_after_shipping'); ?>
+            <?php endif; ?>
           </div>
+          <?php do_action('woocommerce_checkout_billing'); ?>
+          <?php do_action('woocommerce_checkout_shipping'); ?>
         </div>
 
         <?php do_action('woocommerce_checkout_after_customer_details'); ?>
@@ -60,14 +142,22 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
       <?php do_action('woocommerce_checkout_before_order_review'); ?>
 
       <div id="order_review" class="woocommerce-checkout-review-order col-lg-5">
-        <h3 id="order_review_heading"><?php esc_html_e('Your order', 'woocommerce'); ?></h3>
-        <?php do_action('woocommerce_checkout_order_review'); ?>
+        <div class="sticky-wrapper">
+          <div class="order-summary">
+
+            <p class="title" id="order_review_heading"><?php esc_html_e('Order Summary'); ?></p>
+            <?php do_action('woocommerce_checkout_order_review'); ?>
+          </div>
+        </div>
       </div>
 
       <?php do_action('woocommerce_checkout_after_order_review'); ?>
-
+      </div>
     </form>
 
   </div>
 </section>
 <?php do_action('woocommerce_after_checkout_form', $checkout); ?>
+
+
+<?php get_template_part('template-parts/sections/contact-block'); ?>
