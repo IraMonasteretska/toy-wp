@@ -176,8 +176,3 @@ defined('ABSPATH') || exit;
 
 <?php get_template_part('template-parts/sections/contact-block'); ?>
 
-<script>
-  if (document.querySelector('.woocommerce-cart')) {
-    document.querySelector('body').classList.add('greybg')
-  }
-</script>

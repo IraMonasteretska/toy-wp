@@ -18,7 +18,7 @@
         </div>
         <div class="container-fluid">
             <div class="pink-footer__content">
-                <p>2021. All rights reserved.</p>
+                <p><?php the_field('email-opt', 'option'); ?></p>
                 <div class="scrol-up">up</div>
             </div>
         </div>

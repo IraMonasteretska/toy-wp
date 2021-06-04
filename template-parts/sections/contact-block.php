@@ -2,16 +2,16 @@
             <div class="container-fluid">
                 <div class="contactsection__boxes">
                     <div class="contactsection__box">
-                        <p class="title tel">Our phone number</p>
-                        <a href="tel:80400600400">80 (400) 600 400</a>
+                        <p class="title tel"><?php the_field('phone_number_title-opt', 'option'); ?></p>
+                        <a href="tel:<?php the_field('phone_number-opt', 'option'); ?>"><?php the_field('phone_number-opt', 'option'); ?></a>
                     </div>
                     <div class="contactsection__box">
-                        <p class="title mail">Our email</p>
-                        <a href="mail:kids_toy@email.com">kids_toy@email.com</a>
+                        <p class="title mail"><?php the_field('email_title-opt', 'option'); ?></p>
+                        <a href="mail:<?php the_field('email-opt', 'option'); ?>"><?php the_field('email-opt', 'option'); ?></a>
                     </div>
                     <div class="contactsection__box">
-                        <p class="title offaddr">Our office address</p>
-                        <p>245 Park Avenue, FL39 / New York City, NY 10167</p>
+                        <p class="title offaddr"><?php the_field('adress_title-opt', 'option'); ?></p>
+                        <p><?php the_field('adress-opt', 'option'); ?></p>
                     </div>
                 </div>
             </div>
