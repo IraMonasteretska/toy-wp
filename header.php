@@ -42,10 +42,13 @@
                     </div>
                     <div class="col-md-2 justify-content-end d-flex bagcol">
 
-                        <a href="#">
+                        <a href="<?php echo esc_url(wc_get_cart_url()); ?>">
                             <div class="header__bag">
                                 <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/bag.svg" alt="cart">
-                                <span>1</span>
+                                <span class="header__cart-price">
+                                   <?php echo  WC()->cart->get_cart_contents_count(); ?>
+              
+                                </span>
                             </div>
                         </a>
                     </div>
@@ -55,5 +58,7 @@
                 </div>
             </div>
         </div>
+       
     </header>
+    
 	<main class="td-main">

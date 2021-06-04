@@ -58,7 +58,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
             <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/dolar.svg" alt="">
             <?php echo $product->get_price(); ?> <span>VAT included</span>
         </div>
-        <div class="product__btn">
+        <div class="product__btn-w">
             <div class="single_variation_wrap">
                 <?php
                     /**

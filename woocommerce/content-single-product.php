@@ -31,6 +31,29 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
+
+<?php
+  // output galery
+  $metas = explode(',', get_post_meta($post->ID, '_product_image_gallery')[0]);
+  $galegy = array();
+  $galegy[] =  array(
+    'thumb' => wp_get_attachment_image_src(get_post_meta($post->ID, '_thumbnail_id')[0], 'slide_product_thumb')[0],
+    'full' => wp_get_attachment_image_src(get_post_meta($post->ID, '_thumbnail_id')[0], 'slide_product_full')[0],
+    'type' => 'photo',
+    'url' => ''
+
+  );
+  if ($metas != ['']) {
+    foreach ($metas as $key) {
+      $galegy[] =  array(
+        'thumb' => wp_get_attachment_image_src($key, 'slide_product_thumb')[0],
+        'full' => wp_get_attachment_image_src($key, 'slide_product_full')[0],
+        'type' => 'photo'
+
+      );
+    }
+  }
+  ?>
 <section class="single-product" id="main-info">
     <div class="container-fluid">
         <div class="product__wrapper">
@@ -46,8 +69,40 @@ if ( post_password_required() ) {
                                  * @hooked woocommerce_show_product_sale_flash - 10
                                  * @hooked woocommerce_show_product_images - 20
                                  */
-                                do_action( 'woocommerce_before_single_product_summary' );
+                                // do_action( 'woocommerce_before_single_product_summary' );
                             ?>
+                
+                                <div class="product-slider-for">
+                                    <?php
+                                        foreach ($galegy as $key) {
+                                            if ($key['type'] == 'photo') {
+                                                echo '<div class="slider-for-item">';
+                                                echo '<div class="slider-for-item__img">';
+                                                echo  '<img src="' . $key['full'] . '"  class="product-top__for-img" alt="img" />';
+                                                echo '</div>';
+                                                echo '</div>';
+                                            }
+                                        }
+                                    ?>
+                                    
+                                </div>
+
+
+                                <div class="product-slider-nav">
+                                    <?php
+                                        foreach ($galegy as $key) {
+                                            if ($key['type'] == 'photo') {
+                                                echo '<div class="slider-nav-item">';
+                                                echo '<div class="slider-nav-item__img">';
+                                                echo  '<img src="' . $key['full'] . '" alt="img" />';
+                                                echo '</div>';
+                                                echo '</div>';
+                                            }
+                                        }
+                                    ?>
+                                   
+                                </div>
+                           
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -97,58 +152,64 @@ if ( post_password_required() ) {
             <div class="description__head">
                 <div class="description__head-name">
                     <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/menu.svg" alt="">
-                    <span>PRODUCT DESCRIPTION</span>
+                    <span><?php the_field('section_name'); ?></span>
                 </div>
                 <div class="description__head-desc">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <?php the_field('section_description'); ?>
                 </div>
             </div>
             <div class="description__title">
-                Here may be an idea that was the basis for creating your product or <span>Your main statement.</span> 
+                <?php the_field('section_title'); ?>
             </div>
             <div class="row ">
                 <div class="col-lg-6">
                     <div class="description__text">
-                        <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p> 
-                        <h2>Portable</h2>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                        <p>
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute 
-                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                            Excepteur sint occaecat cupidatat non.
-                        </p>
+                        <?php the_field('section_text'); ?>
+                       
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="<?php echo SD_THEME_IMAGE_URI; ?>/description.jpg" alt="">
+                    <?php 
+                        $image = get_field('section_image');
+                        if( !empty( $image ) ): ?>
+                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                    <?php endif; ?>
                 </div>
                 <div class="col-12 description__text-bottom">
                     <div class="description__text">
-                        <p>
-                            Nec feugiat in fermentum posuere urna nec. Consequat interdum varius sit amet. 
-                            In hac habitasse platea dictumst quisque sagittis purus. Semper risus in hendrerit gravida rutrum. Nec feugiat in fermentum posuere urna nec. Consequat interdum varius sit amet. 
-                            In hac habitasse platea dictumst quisque sagittis purus. Semper risus in hendrerit gravida rutrum.
-                        </p>
+                        <?php the_field('section_text_bottom'); ?>
+
+                        
                     </div>
                 </div>
             </div>
             <div class="description__images">
-                <div class="description-image">
-                    <img src="<?php echo SD_THEME_IMAGE_URI; ?>/description-img.jpg" alt="">
-                    <p>Picture description</p>
-                </div>
-                <div class="description-image">
-                    <img src="<?php echo SD_THEME_IMAGE_URI; ?>/description-img.jpg" alt="">
-                    <p>Picture description</p>
-                </div>
-                <div class="description-image">
-                    <img src="<?php echo SD_THEME_IMAGE_URI; ?>/description-img.jpg" alt="">
-                    <p>Picture description</p>
-                </div>
+                <?php
+
+                    // Check rows exists.
+                    if( have_rows('section_images_bottom') ):
+
+                        // Loop through rows.
+                        while( have_rows('section_images_bottom') ) : the_row();
+                            $image = get_sub_field('image');
+                            $url = $image['url'];
+                            // Load sub field value.
+                            $text = get_sub_field('text'); ?>
+                            <div class="description-image">
+                                <div class="description-image-wrap">
+                                    <img src="<?php echo $url; ?>" alt="">
+                                </div>
+                                
+                                <p><?php echo $text; ?></p>
+                            </div>
+                        <?php endwhile;
+
+                    // No value.
+                    else :
+                        // Do something...
+                    endif;
+                ?>
+              
             </div>
             
         </div>
@@ -172,7 +233,28 @@ if ( post_password_required() ) {
             <div class="video-home__slider-df">
 
                 <div class="video-home__slider-for">
-                    <div class="video-home__for-item">
+                    <?php 
+                        if (have_rows('video_slider')) {
+                            while (have_rows('video_slider')) {
+                                the_row();
+                                $file = get_sub_field('add_video');
+                                // echo $file['url'],'<br />';
+                                ?>
+
+                                <div class="video-home__for-item">
+                                    <div class="video-home__for-video-wpap">
+                                        <video class="video-home__for-video">
+                                            <source src="<?php echo $file['url']; ?>" type="video/mp4">
+                                            </source>
+                                        </video>
+                                        <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__for-icon-play" alt="play">
+                                    </div>
+                               
+                                </div>
+                            <?php }
+                        }
+                    ?>
+                    <!-- <div class="video-home__for-item">
                         <div class="video-home__for-video-wpap">
                             <video class="video-home__for-video">
                                 <source src="<?php echo get_template_directory_uri(); ?>/assets/video/design-video.mp4" type="video/mp4">
@@ -231,10 +313,31 @@ if ( post_password_required() ) {
                             <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__for-icon-play" alt="play">
                         </div>
         
-                    </div>
+                    </div> -->
                 </div>
                 <div class="video-home__slider-nav">
-                    <div class="video-home__nav-item">
+                    <?php 
+                            if (have_rows('video_slider')) {
+                                while (have_rows('video_slider')) {
+                                    the_row();
+                                    $file = get_sub_field('add_video');
+                                    // echo $file['url'],'<br />';
+                                    ?>
+
+                                    <div class="video-home__nav-item">
+                                        <div class="video-home__nav-video-wpap">
+                                            <video class="video-home__nav-video">
+                                                <source src="<?php echo $file['url']; ?>" type="video/mp4">
+                                                </source>
+                                            </video>
+                                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__icon-play" alt="play">
+                                        </div>
+                        
+                                    </div>
+                                <?php }
+                            }
+                        ?>
+                    <!-- <div class="video-home__nav-item">
                         <div class="video-home__nav-video-wpap">
                             <video class="video-home__nav-video">
                                 <source src="<?php echo get_template_directory_uri(); ?>/assets/video/design-video.mp4" type="video/mp4">
@@ -293,7 +396,7 @@ if ( post_password_required() ) {
                             <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__icon-play" alt="play">
                         </div>
         
-                    </div>
+                    </div> -->
                 </div>
             </div>
             

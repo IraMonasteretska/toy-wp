@@ -1,0 +1,25 @@
+@mixin dynamic-block($content, $w: 100%, $h: 100%)
+	position: relative
+	width: $w
+	&:before 
+		content: ""
+		display: block
+		padding-top: $h
+	
+	#{$content} 
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+.description-image
+    width: 33.333%
+    @media (max-width: 575.8px)
+        width: 100%
+.description-image-wrap
+    @include dynamic-block("img", 100%, 100%)
+
+    img 
+        height: 100%
+        width: 100%
+        object-fit: cover
