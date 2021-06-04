@@ -28,6 +28,7 @@ if ( ! function_exists( 'toy_scripts' ) ) {
 		// wp_enqueue_style( 'sd-formst', get_template_directory_uri() . '/assets/css/jquery.formstyler.theme.css', array(), $css_version );
 		wp_enqueue_style( 'sd-slick', get_template_directory_uri() . '/assets/css/slick.css', array(), $css_version );
 		wp_enqueue_style( 'sd-common', get_template_directory_uri() . '/assets/css/common.css', array(), $css_version );
+		wp_enqueue_style( 'sd-main', get_template_directory_uri() . '/assets/css/main.min.css', array(), $css_version );
 		wp_enqueue_style( 'sd-styles', get_template_directory_uri() . '/assets/css/style.css', array(), $css_version );
 		wp_enqueue_style( 'sd-responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), $css_version );
 
