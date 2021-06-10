@@ -297,3 +297,18 @@ $(window).on("load", function () {
   $("#exampleModal").modal("show");
 });
 // end show model in thank-you page
+
+// start get price in single product
+if (document.querySelector(".product .woocommerce-variation")) {
+  let variationPrice = document.querySelector(
+    ".product .woocommerce-variation"
+  );
+
+  let mainPrice = document.querySelector(
+    ".product__price .main-price-woocommerce-my"
+  );
+  variationPrice.addEventListener("DOMSubtreeModified", () => {
+    mainPrice.textContent = variationPrice.textContent.trim().slice(1);
+  });
+}
+// end get price in single product

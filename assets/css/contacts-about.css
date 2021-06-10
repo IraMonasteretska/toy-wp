@@ -1219,6 +1219,30 @@ input[type="number"] {
   color: #a7a7a7;
 }
 
+.product .woocommerce-variation.single_variation {
+  display: none !important;
+}
+
+.product .product__price {
+  display: flex;
+}
+
+.main-price-woocommerce-my {
+  position: relative;
+  padding-left: 37px;
+}
+
+.main-price-woocommerce-my:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 21px;
+  height: 57px;
+  background-image: url(../img/icon/dollarw21.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 @media (max-width: 1100px) {
   .woocommerce-checkout.checkout-whitesect.billing
     .boxform
@@ -1309,6 +1333,16 @@ input[type="number"] {
   }
   .woocommerce-checkout #billing_postcode_field {
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 575.8px) {
+  .main-price-woocommerce-my:before {
+    height: 35px;
+  }
+
+  .main-price-woocommerce-my {
+    padding-left: 29px;
   }
 }
 
