@@ -18,7 +18,7 @@
         </div>
         <div class="container-fluid">
             <div class="pink-footer__content">
-                <p><?php the_field('email-opt', 'option'); ?></p>
+                <p><?php echo date('Y'); ?>. <?php the_field('all_rights_reserved', 'option'); ?></p>
                 <div class="scrol-up">up</div>
             </div>
         </div>

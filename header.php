@@ -32,13 +32,23 @@
                 <div class="row menurow">
                     <div class="col-md-10">
                         <nav>
-                            <ul>
+                            <?php
+                                if( has_nav_menu( 'main_menu' ) ) {
+                                    wp_nav_menu(array(
+                                        'menu' => 'main_menu',
+                                        // 'menu_class' => 'main-menu',
+                                        'theme_location' => 'main_menu',
+                                        'container' => 'ul',
+                                    ));
+                                }						
+                            ?>
+                            <!-- <ul>
                                 <li><a href="home.html">Home</a></li>
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="#">Product</a></li>
                                 <li><a href="#">Contacts</a></li>
                                 <li><a href="#">Buy</a></li>
-                            </ul>
+                            </ul> -->
                         </nav>
                     </div>
                     <div class="col-md-2 justify-content-end d-flex bagcol">

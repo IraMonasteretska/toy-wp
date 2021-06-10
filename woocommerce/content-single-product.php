@@ -226,8 +226,8 @@ if ( post_password_required() ) {
                     <span>Video</span>
                 </div>
                 <div class="description__head-desc">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <?php the_field('text_video'); ?>
+                   
                 </div>
             </div>
             <div class="video-home__slider-df">
@@ -238,7 +238,6 @@ if ( post_password_required() ) {
                             while (have_rows('video_slider')) {
                                 the_row();
                                 $file = get_sub_field('add_video');
-                                // echo $file['url'],'<br />';
                                 ?>
 
                                 <div class="video-home__for-item">
@@ -254,66 +253,7 @@ if ( post_password_required() ) {
                             <?php }
                         }
                     ?>
-                    <!-- <div class="video-home__for-item">
-                        <div class="video-home__for-video-wpap">
-                            <video class="video-home__for-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/design-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__for-icon-play" alt="play">
-                        </div>
-        
-                    </div>
-                    <div class="video-home__for-item">
-                        <div class="video-home__for-video-wpap">
-                            <video class="video-home__for-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/seo-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__for-icon-play" alt="play">
-                        </div>
-        
-                    </div>
-                    <div class="video-home__for-item">
-                        <div class="video-home__for-video-wpap">
-                            <video class="video-home__for-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/digital-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__for-icon-play" alt="play">
-                        </div>
-        
-                    </div>
-                    <div class="video-home__for-item">
-                        <div class="video-home__for-video-wpap">
-                            <video class="video-home__for-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/design-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__for-icon-play" alt="play">
-                        </div>
-        
-                    </div>
-                    <div class="video-home__for-item">
-                        <div class="video-home__for-video-wpap">
-                            <video class="video-home__for-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/seo-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__for-icon-play" alt="play">
-                        </div>
-        
-                    </div>
-                    <div class="video-home__for-item">
-                        <div class="video-home__for-video-wpap">
-                            <video class="video-home__for-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/digital-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__for-icon-play" alt="play">
-                        </div>
-        
-                    </div> -->
+            
                 </div>
                 <div class="video-home__slider-nav">
                     <?php 
@@ -321,7 +261,6 @@ if ( post_password_required() ) {
                                 while (have_rows('video_slider')) {
                                     the_row();
                                     $file = get_sub_field('add_video');
-                                    // echo $file['url'],'<br />';
                                     ?>
 
                                     <div class="video-home__nav-item">
@@ -337,66 +276,7 @@ if ( post_password_required() ) {
                                 <?php }
                             }
                         ?>
-                    <!-- <div class="video-home__nav-item">
-                        <div class="video-home__nav-video-wpap">
-                            <video class="video-home__nav-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/design-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__icon-play" alt="play">
-                        </div>
-        
-                    </div>
-                    <div class="video-home__nav-item">
-                        <div class="video-home__nav-video-wpap">
-                            <video class="video-home__nav-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/seo-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__icon-play" alt="play">
-                        </div>
-        
-                    </div>
-                    <div class="video-home__nav-item">
-                        <div class="video-home__nav-video-wpap">
-                            <video class="video-home__nav-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/digital-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__icon-play" alt="play">
-                        </div>
-        
-                    </div>
-                    <div class="video-home__nav-item">
-                        <div class="video-home__nav-video-wpap">
-                            <video class="video-home__nav-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/design-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__icon-play" alt="play">
-                        </div>
-        
-                    </div>
-                    <div class="video-home__nav-item">
-                        <div class="video-home__nav-video-wpap">
-                            <video class="video-home__nav-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/seo-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__icon-play" alt="play">
-                        </div>
-        
-                    </div>
-                    <div class="video-home__nav-item">
-                        <div class="video-home__nav-video-wpap">
-                            <video class="video-home__nav-video">
-                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/digital-video.mp4" type="video/mp4">
-                                </source>
-                            </video>
-                            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/icon-play-video.svg" class="video-home__icon-play" alt="play">
-                        </div>
-        
-                    </div> -->
+              
                 </div>
             </div>
             
@@ -495,23 +375,8 @@ if ( post_password_required() ) {
 </section>
 
 
-<section class="contactsection_main">
-    <div class="container-fluid">
-        <div class="contactsection__boxes">
-            <div class="contactsection__box">
-                <p class="title tel">Our phone number</p>
-                <a href="tel:80400600400">80 (400) 600 400</a>
-            </div>
-            <div class="contactsection__box">
-                <p class="title mail">Our email</p>
-                <a href="mail:kids_toy@email.com">kids_toy@email.com</a>
-            </div>
-            <div class="contactsection__box">
-                <p class="title offaddr">Our office address</p>
-                <p>245 Park Avenue, FL39 / New York City, NY 10167</p>
-            </div>
-        </div>
-    </div>
-</section>
+
+<?php get_template_part('template-parts/sections/contact-block'); ?>
+
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
