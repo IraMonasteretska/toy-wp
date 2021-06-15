@@ -160,4 +160,4 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 <?php do_action('woocommerce_after_checkout_form', $checkout); ?>
 
 
-<?php get_template_part('template-parts/sections/contact-block'); ?>
+<?php get_template_part('template-parts/sections/contact-block_white'); ?>

@@ -1,4 +1,32 @@
 $(document).ready(function () {
+
+  $('.buy__product').on('click', function(){
+    $.ajax({
+      type: 'POST',
+      url: $nm_js.ajaxurl,
+      dataType: "html", // add data type
+      data: { 
+        action : 'addProductAjax',
+      },
+      success: function( response ) {
+        console.log('add');
+        $('.header__cart-price').text(response)
+        window.location.href = 'http://toy/cart/';
+      }
+    });
+  })
+
+  // $.ajax({
+  //   type: 'GET',
+  //   url: "/site-reviews/v1/reviews",
+  //   dataType: "json", // add data type
+   
+  //   success: function( response ) {
+  //     console.log(response);
+     
+  //   }
+  // });
+
   // +/-
   $(".minus").click(function () {
     var $input = $(this).parent().find("input");
@@ -93,15 +121,12 @@ $(document).ready(function () {
   //     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   // })
 
-  // cookie close
-  $(".cookie__close").click(function () {
-    $(".cookie").hide();
-  });
+  
 
   // reviews Slider
 
   function reviewsSlider() {
-    var $reviewsSlider = $(".reviews__slider");
+    var $reviewsSlider = $(".glsr-reviews");
     // slideControls   = $('.slider-controls');
 
     if ($reviewsSlider.length) {
@@ -162,6 +187,7 @@ $(document).ready(function () {
       $("body,html").animate({ scrollTop: top }, 1000);
     });
   }
+
   if (document.querySelector(".product-slider-for")) {
     // product-slider
     $(".product-slider-for").slick({
@@ -312,3 +338,85 @@ if (document.querySelector(".product .woocommerce-variation")) {
   });
 }
 // end get price in single product
+
+
+function setCookie(name, value, minutes) {
+  var expires = "";
+
+  if (minutes) {
+  var date = new Date();
+  date.setTime(date.getTime() + minutes * 1000);
+  expires = "; expires=" + date.toUTCString();
+  }
+
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+} // Get cookie
+
+
+function readCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+  var c = ca[i];
+  while (c.charAt(0) == ' ') {
+      c = c.substring(1, c.length);
+  }
+  if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  }
+
+  return null;
+} 
+
+var shCookie = readCookie('toyCookie')
+
+if(!shCookie) {
+
+  $('.cookies__ok').on('click', function(e){
+      e.preventDefault();
+      setCookie('toyCookie', true, 15650000)
+      $('.cookie').fadeOut();
+  })
+
+
+  $(".cookie__close").click(function () {
+    $(".cookie").fadeOut();
+  });
+  $(".cookie").fadeIn();
+  console.log(0);
+
+} else {
+  $('.cookie').hide()
+  console.log(1);
+}
+
+
+
+// cookie close
+let xs = []
+for (var i = 0; i <= 500; i++) {
+  xs.push(i)
+}
+
+let t = 0
+
+function animate() {
+  
+  let points = xs.map(x => {
+    
+    let y = 100 + 10 * Math.sin((x + t) / 15)
+    
+    return [x, y]
+  })
+  
+  let path = "M" + points.map(p => {
+    return p[0] + "," + p[1]
+  }).join(" L")
+  
+  document.querySelector(".vawe path").setAttribute("d", path)
+  
+  t += 1.2
+  
+  requestAnimationFrame(animate)
+}
+
+animate()

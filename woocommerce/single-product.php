@@ -52,9 +52,10 @@ get_header( 'shop' ); ?>
                     <span>Customer Reviews</span>
                 </a>
                 <div class="product-menu__share">
-                    <a href="#">
+                    <a href="#"  data-toggle="modal"  data-target="#product_share">
                         <img src="<?php echo SD_THEME_IMAGE_URI; ?>/share.svg" alt="">
                     </a>
+             
                 </div>
             </div>
             

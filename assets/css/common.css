@@ -154,6 +154,7 @@ header.header {
 }
 
 .header__content ul li.active a:before,
+.header__content ul li.current-menu-item a:before,
 .header__content ul li a:hover:before {
     opacity: 1;
 }
@@ -704,7 +705,41 @@ input[type="checkbox"] {
     -o-transform: translateY(-50%);
 }
 
+.checkfield .wpcf7-list-item-label:after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FDBEDB;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
 .checkfield label:before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #FDBEDB;
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    display: none;
+
+}
+
+.checkfield .wpcf7-list-item-label:before {
     content: '';
     display: inline-block;
     width: 8px;
@@ -724,6 +759,14 @@ input[type="checkbox"] {
 
 .checkfield input:checked+label:before {
     display: inline-block;
+}
+
+.checkfield input:checked+.wpcf7-list-item-label:before {
+    display: inline-block;
+}
+
+.wpcf7-list-item {
+    margin-left: 0;
 }
 
 .checkout-whitesect.billing .boxform {

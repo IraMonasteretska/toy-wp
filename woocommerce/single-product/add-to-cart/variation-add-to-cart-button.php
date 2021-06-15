@@ -41,10 +41,19 @@ $rating_count = $product->get_rating_count();
         <div class="product__rev">
             <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/comm.svg" alt="">
             <p>
-                <span><?php echo $rating_count; ?> </span> 
-                Reviews
+                <a href="#reviews" class='scroll-section'>
+                    <span>
+                        <?php $count_posts_review = wp_count_posts( 'site-review' )->publish;
+                            echo $count_posts_review; ?>
+                        </span> 
+                    Reviews
+                </a>
             </p>
-
+            <!-- <div class="product-menu__share">
+                <a href="#" data-toggle="modal"  data-target="#product_share">
+                    <img src="<?php echo SD_THEME_IMAGE_URI; ?>/share.svg" alt="">
+                </a>
+            </div> -->
         </div>
     </div>
 

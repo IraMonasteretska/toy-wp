@@ -18,8 +18,15 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
-<header class="header">
+<?php
+    if (is_front_page() || is_page_template( 'contacts.php' ) || is_page_template( 'about-us.php' )) { ?>
+        <body <?php body_class(); ?> >
+   <?php } else { ?>
+        <body <?php body_class('greybg'); ?> >
+   <?php }
+?>
+
+    <header class="header">
         <div class="header__pinkrow">
             <div class="container-fluid text-center">
                 <p>FREE SHIPPING ON ORDERS OVER $99.99</p>
@@ -42,13 +49,6 @@
                                     ));
                                 }						
                             ?>
-                            <!-- <ul>
-                                <li><a href="home.html">Home</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Product</a></li>
-                                <li><a href="#">Contacts</a></li>
-                                <li><a href="#">Buy</a></li>
-                            </ul> -->
                         </nav>
                     </div>
                     <div class="col-md-2 justify-content-end d-flex bagcol">
@@ -58,7 +58,6 @@
                                 <img src="<?php echo SD_THEME_IMAGE_URI; ?>/icon/bag.svg" alt="cart">
                                 <span class="header__cart-price">
                                    <?php echo  WC()->cart->get_cart_contents_count(); ?>
-              
                                 </span>
                             </div>
                         </a>

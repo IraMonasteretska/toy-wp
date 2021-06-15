@@ -30,7 +30,7 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 
 // single product
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 35 );
-
+add_filter( 'wc_add_to_cart_message_html', '__return_false' );
 
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
@@ -69,3 +69,32 @@ function header_add_to_cart_fragment($fragments){
 }
 
 
+add_filter('site-reviews/review-form/order', function ($order) {
+  // The $order array contains the field keys returned below.
+  // Simply change the order of the field keys to the desired field order.
+  return [
+      'name',
+      'email',
+      'rating',
+      'content',
+  ];
+});
+
+add_filter('site-reviews/enqueue/public/inline-script/after', function ($javascript) {
+  return $javascript."
+  GLSR.Event.on('site-reviews/form/handle', function (response, formEl) {
+      if (false !== response.errors) return;
+      formEl.classList.add('glsr-hide-form');
+      formEl.insertAdjacentHTML('afterend', '<h2>' + response.message + '</h2>');
+  });";
+});
+
+
+if(function_exists('A2A_SHARE_SAVE_add_to_content')){
+	remove_filter( 'the_content', 'A2A_SHARE_SAVE_add_to_content', 98 );
+	remove_action( 'pre_get_posts', 'A2A_SHARE_SAVE_pre_get_posts' );
+	add_action('nc_share_post', function() {
+		echo do_shortcode('[addtoany]');
+	});
+	
+}

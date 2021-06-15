@@ -174,5 +174,5 @@ defined('ABSPATH') || exit;
   </div>
 </section>
 
-<?php get_template_part('template-parts/sections/contact-block'); ?>
+<?php get_template_part('template-parts/sections/contact-block_white'); ?>
 

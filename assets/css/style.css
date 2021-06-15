@@ -2142,7 +2142,7 @@ img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 

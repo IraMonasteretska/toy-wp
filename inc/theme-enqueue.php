@@ -56,7 +56,7 @@ if ( ! function_exists( 'toy_scripts' ) ) {
 		// wp_enqueue_script( 'nm-formstyler', get_template_directory_uri() . '/assets/js/jquery.formstyler.min.js', array('sd-libs'), $js_version, true );
 		wp_enqueue_script( 'nm-common', get_template_directory_uri() . '/assets/js/common.js', array('sd-libs'), $js_version, true );
 
-		wp_localize_script( 'nm-custom', '$nm_js', array(
+		wp_localize_script( 'nm-common', '$nm_js', array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		));
 

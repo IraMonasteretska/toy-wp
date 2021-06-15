@@ -317,7 +317,7 @@ if ( post_password_required() ) {
                                 <div class="reviews__slider-prev">Prev</div>
                                 <div class="reviews__slider-next">Next</div>
                             </div>
-                            <div class="reviews__slider">
+                            <!-- <div class="reviews__slider">
                                 <div class="reviews-item">
                                     <div class="reviews-item__text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
                                     <div class="reviews-item__star">
@@ -364,7 +364,8 @@ if ( post_password_required() ) {
                                     <div class="reviews-item__name">july</div>
                                     <div class="reviews-item__date">bought 2 months ago</div>
                                 </div>
-                            </div>
+                            </div> -->
+                            <?php echo do_shortcode('[site_reviews]');?>
                         </div>
                     </div>
                 </div>
@@ -380,3 +381,19 @@ if ( post_password_required() ) {
 
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
+
+
+<div class="modal fade " id="product_share" tabindex="-1" role="dialog" aria-labelledby="product_share" aria-modal="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="rewiew-content">
+                <button class="closepopup" data-dismiss="modal" aria-label="Close"></button>
+                <p class="title">Share</p>
+                <div class="modal-body share-wrapper">
+                    <?php do_action('nc_share_post'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

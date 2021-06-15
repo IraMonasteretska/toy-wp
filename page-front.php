@@ -32,10 +32,24 @@ get_header(); ?>
       <div class="col-xl-7 col-lg-7">
         <div class="intro__img">
           <div class="intro-img">
-            <img src="<?php the_field('main_image-hp-fb'); ?>" alt="">
+            <?php 
+              $file = get_field('main_video_intro');
+              if ($file) { ?>
+                <video class="intro-video" poster="<?php echo $file['url']; ?>" loop="" autoplay="" muted="">
+                  <source src="<?php echo $file['url']; ?>" type="video/mp4">
+                </video>
+             <?php } else { ?>
+              <img src="<?php the_field('main_image-hp-fb'); ?>" alt="">
+              <?php }
+            ?>
+
+            
           </div>
           <a href="#mainProduct" class="intro__scroll ">
-            <img src="<?php echo SD_THEME_IMAGE_URI; ?>/intro-wave.svg" alt="">
+            <!-- <img src="<?php echo SD_THEME_IMAGE_URI; ?>/intro-wave.svg" alt=""> -->
+            <svg class='vawe'>
+              <path d="M10,10 L50,100 L90,50"></path>
+            </svg>
             <span>Scroll</span>
           </a>
           <div class="intro__payment d-none d-lg-flex">
@@ -331,17 +345,22 @@ get_header(); ?>
 
 <section class='marquee-wrapper'>
   <div class='marquee' style='overflow:hidden'>
-    <!-- <span class="pink">Happiness</span>
-    <span>CREATIVity</span> -->
+ 
     <?php
-    if (have_rows('marquee_block-hp')) :
-      while (have_rows('marquee_block-hp')) : the_row();
+      if (have_rows('marquee_block-hp')) :
+        while (have_rows('marquee_block-hp')) : the_row();
+          $chckbox_value = get_sub_field_object('pink');
+        ?>
+        
+        <?php if( $chckbox_value && in_array( 'pink', get_sub_field('pink') )) { ?>
+          <span class="pink"><?php the_sub_field('text'); ?> </span>
+        <?php  } else {?>
+          <span><?php the_sub_field('text'); ?> </span>
+        <?php } ?>
 
-        the_sub_field('text');
-
-      endwhile;
-    else :
-    endif;
+        <?php endwhile;
+      else :
+      endif;
     ?>
 
   </div>
@@ -367,7 +386,7 @@ get_header(); ?>
             <div class="reviews__title"><?php the_field('title-hp-review'); ?></div>
             <div class="reviews__subtitle"><?php the_field('text-hp-review'); ?> </div>
             <div class="reviews__btn">
-              <a href="<?php the_field('button_link-hp-review'); ?>" class="btn_border"><?php the_field('button_text-hp-review'); ?></a>
+              <a href="<?php the_field('button_link-hp-review'); ?>" class="btn_border" data-toggle="modal" data-target="#rewiew"><?php the_field('button_text-hp-review'); ?></a>
             </div>
           </div>
         </div>
@@ -377,7 +396,8 @@ get_header(); ?>
               <div class="reviews__slider-prev">Prev</div>
               <div class="reviews__slider-next">Next</div>
             </div>
-            <div class="reviews__slider">
+            <!-- <div class="reviews__slider">
+
               <div class="reviews-item">
                 <div class="reviews-item__text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
                 <div class="reviews-item__star">
@@ -424,7 +444,9 @@ get_header(); ?>
                 <div class="reviews-item__name">july</div>
                 <div class="reviews-item__date">bought 2 months ago</div>
               </div>
-            </div>
+            </div> -->
+            <?php echo do_shortcode('[site_reviews]');?>
+
           </div>
         </div>
       </div>
