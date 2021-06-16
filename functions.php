@@ -55,3 +55,9 @@ foreach ($smoky_dance_includes as $file) {
   }
   require_once $filepath;
 }
+
+
+add_filter('acf/settings/google_api_key', function () {
+  $value = get_field( "map-api", 145 );
+	return $value;
+});

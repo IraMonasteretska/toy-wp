@@ -29,8 +29,11 @@
     <header class="header">
         <div class="header__pinkrow">
             <div class="container-fluid text-center">
-                <p>FREE SHIPPING ON ORDERS OVER $99.99</p>
-                
+                <?php 
+                    if (get_field('header_top_text', 'option')) { ?>
+                        <p><?php the_field('header_top_text', 'option'); ?></p>
+                    <?php }
+                ?>
             </div>
         </div>
         <div class="header__content">

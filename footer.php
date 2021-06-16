@@ -32,8 +32,7 @@
             <p class="title">Cookie talk</p>
             <div class="descr">
                 <p>
-                    We use cookies to enhance your browsing experience, analyze site traffic and serve tailored
-                    advertisements. By continung to our use of cookies.
+                    <?php the_field('cookie_text', 'option'); ?>
                 </p>
             </div>
             <a href="#" class='cookies__ok'>accept cookies</a>

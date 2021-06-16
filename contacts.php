@@ -47,6 +47,7 @@ get_header();
         </div>
       </div>
       <div id="map">
+        <?php $coordinates= get_field('map_coordinates'); ?>
         <script>
           // ////////////  map init /////////
           // https://maps.googleapis.com/maps/api/js?key=AIzaSyAuqtG8XhmKQPGoYpFi9dqZmhZTDWGCxE0&amp;callback=initMap
@@ -185,8 +186,8 @@ get_header();
                 styles: stylemap,
                 disableDefaultUI: true,
                 center: {
-                  lat: 40.754870123759964,
-                  lng: -73.9747749444492
+                  lat:<?php echo $coordinates['lat'];?>,
+                  lng:<?php echo $coordinates['lng'];?>
                 }
 
               };
@@ -194,10 +195,10 @@ get_header();
 
               var markers = [{
                 coordinates: {
-                  lat: 60.00709621992757,
-                  lng: 23.539583887654967
+                  lat:<?php echo $coordinates['lat'];?>,
+                  lng:<?php echo $coordinates['lng'];?>
                 },
-                image: "img/icon/pinktel.svg",
+                image: "<?php echo SD_THEME_IMAGE_URI; ?>/icon/marker.svg",
               }];
 
               function addMarker(properties) {
@@ -221,7 +222,7 @@ get_header();
 
           }
         </script>
-        <script async defer src="<?php the_field('map-api'); ?>">
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php the_field('map-api'); ?>&amp;callback=initMap">
         </script>
 
       </div>

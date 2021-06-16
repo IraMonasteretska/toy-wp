@@ -389,34 +389,36 @@ if(!shCookie) {
   console.log(1);
 }
 
-
-
 // cookie close
-let xs = []
-for (var i = 0; i <= 500; i++) {
-  xs.push(i)
-}
 
-let t = 0
 
-function animate() {
-  
-  let points = xs.map(x => {
+if (document.querySelector(".vawe")) {
+  let xs = []
+  for (var i = 0; i <= 500; i++) {
+    xs.push(i)
+  }
+
+  let t = 0
+
+  function animate() {
     
-    let y = 100 + 10 * Math.sin((x + t) / 15)
+    let points = xs.map(x => {
+      
+      let y = 100 + 10 * Math.sin((x + t) / 15)
+      
+      return [x, y]
+    })
     
-    return [x, y]
-  })
-  
-  let path = "M" + points.map(p => {
-    return p[0] + "," + p[1]
-  }).join(" L")
-  
-  document.querySelector(".vawe path").setAttribute("d", path)
-  
-  t += 1.2
-  
-  requestAnimationFrame(animate)
-}
+    let path = "M" + points.map(p => {
+      return p[0] + "," + p[1]
+    }).join(" L")
+    
+    document.querySelector(".vawe path").setAttribute("d", path)
+    
+    t += 1.2
+    
+    requestAnimationFrame(animate)
+  }
 
-animate()
+  animate()
+}
